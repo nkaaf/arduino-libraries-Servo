@@ -44,6 +44,8 @@ void loop() {}
 
 Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement).
 
+Most implementations interpret values below their pulse-width threshold as angles (clamped to 0–180) and larger values as pulse widths in microseconds. Zephyr, STM32F4, Renesas, and nRF52 treat `angle` as an angle directly rather than using the threshold-based interpretation.
+
 #### Syntax
 
 ```
